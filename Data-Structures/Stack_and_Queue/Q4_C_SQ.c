@@ -112,7 +112,18 @@ int main()
 
 void reverse(Queue *q)
 {
-/* add your code here */
+	Stack tempstack;
+	tempstack.ll.head=NULL;
+	tempstack.ll.size=0;
+
+	while (q->ll.size>0)
+	{
+		push(&tempstack,dequeue(q));
+	}
+
+	while (tempstack.ll.size>0){
+		enqueue(q,pop(&tempstack));
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
